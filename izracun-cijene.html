@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Izračun cijene | RYS Horticulture</title>
+<meta name="description" content="Brzo izračunajte približnu cijenu održavanja vrta prema kvadraturi i lokaciji. Procjena u nekoliko sekundi, bez obveze.">
+<meta name="theme-color" content="#2F4A2B">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/logo-sm.png">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="hr_HR">
+<meta property="og:title" content="Izračun cijene | RYS Horticulture">
+<meta property="og:description" content="Izračunajte približnu cijenu održavanja vrta u nekoliko sekundi, bez obveze.">
+<meta property="og:image" content="assets/img/hero-vrt-sm.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Prijeđi na sadržaj</a>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="RYS Horticulture, početna stranica">
+      <span class="brand__badge"><img src="assets/img/logo-sm.png" alt="" width="64" height="66"></span>
+      <span class="brand__name">RYS Horticulture</span>
+    </a>
+    <nav class="nav" aria-label="Glavna navigacija">
+      <a href="index.html">Početna</a>
+      <a href="usluge.html">Usluge</a>
+      <a href="galerija.html">Galerija</a>
+      <a href="izracun-cijene.html" aria-current="page">Izračun cijene</a>
+      <a href="o-nama.html">O nama</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <a class="btn" href="kontakt.html">Zatražite ponudu</a>
+    <button class="nav-toggle" type="button" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="mobilni-izbornik">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="sheet-scrim"></div>
+<aside class="sheet" id="mobilni-izbornik" aria-label="Izbornik">
+  <span class="sheet__grip" aria-hidden="true"></span>
+  <div class="sheet__top">
+    <span class="brand__name">Izbornik</span>
+    <button class="sheet__close" type="button" aria-label="Zatvori izbornik">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobilna navigacija">
+    <a href="index.html">Početna</a>
+    <a href="usluge.html">Usluge</a>
+    <a href="galerija.html">Galerija</a>
+    <a href="izracun-cijene.html" aria-current="page">Izračun cijene</a>
+    <a href="o-nama.html">O nama</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+  <div class="sheet__foot">
+    <a class="btn" href="kontakt.html">Zatražite ponudu</a>
+    <a class="btn btn--onDark" href="https://wa.me/385994105644" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</aside>
+
+<main id="main">
+
+  <section class="pagehead">
+    <div class="wrap">
+      <span class="eyebrow">Izračun cijene</span>
+      <h1>Koliko bi to otprilike stajalo?</h1>
+      <p>Upišite kvadraturu i odaberite gdje se vrt nalazi. Procjenu dobivate odmah, bez čekanja i bez obveze.</p>
+    </div>
+  </section>
+
+  <!-- Bez JavaScripta kalkulator ne može računati, pa se sakriva i nudi
+       statični cjenik koji je ionako niže na stranici. -->
+  <noscript>
+    <style>.calc { display: none; }</style>
+  </noscript>
+
+  <section class="section section--cream">
+    <div class="wrap">
+      <noscript>
+        <div class="panel">
+          <h2>Kalkulator traži JavaScript</h2>
+          <p style="margin-top: var(--sp-3); color: var(--text-muted);">
+            Cijene po kojima računamo naći ćete u tablici niže na ovoj stranici.
+            Ako želite procjenu za svoj vrt, javite nam kvadraturu i lokaciju:
+          </p>
+          <p style="margin-top: var(--sp-4);">
+            <a class="btn btn--lg btn--leaf" href="https://wa.me/385994105644">Pišite nam na WhatsApp</a>
+          </p>
+        </div>
+      </noscript>
+
+      <div class="calc">
+
+        <!-- ---------- Unos ---------- -->
+        <div class="calc__controls" data-reveal>
+
+          <!-- Kartica: travnjak -->
+          <section class="calc__usluga" data-usluga="travnjak">
+            <div class="calc__usluga-head">
+              <label class="switch">
+                <input type="checkbox" id="usluga-travnjak" checked>
+                <span class="switch__track" aria-hidden="true"></span>
+                <span class="switch__naziv">Košnja travnjaka</span>
+              </label>
+              <span class="calc__podzbroj" data-podzbroj="travnjak"></span>
+            </div>
+
+            <div class="calc__usluga-body">
+              <div>
+                <div class="calc__label">
+                  <label for="povrsina">Površina</label>
+                  <span class="calc__value"><span data-out-povrsina>300</span><small>m²</small></span>
+                </div>
+                <input class="calc__range" id="povrsina" type="range"
+                       min="20" max="5000" step="10" value="300"
+                       aria-describedby="povrsina-opis">
+                <div class="calc__scale" aria-hidden="true"><span>20 m²</span><span>5000 m²</span></div>
+                <p class="field__hint" id="povrsina-opis" style="margin-top:.4rem">
+                  Približno je sasvim dovoljno, ne mora biti na metar točno.
+                </p>
+              </div>
+
+              <label class="check">
+                <input type="checkbox" id="nagib">
+                <span>Kosi teren <span class="check__hint">(cijena rada ×2)</span></span>
+              </label>
+            </div>
+          </section>
+
+          <!-- Kartica: živica -->
+          <section class="calc__usluga" data-usluga="zivica" data-off>
+            <div class="calc__usluga-head">
+              <label class="switch">
+                <input type="checkbox" id="usluga-zivica">
+                <span class="switch__track" aria-hidden="true"></span>
+                <span class="switch__naziv">Orezivanje živice</span>
+              </label>
+              <span class="calc__podzbroj" data-podzbroj="zivica"></span>
+            </div>
+
+            <div class="calc__usluga-body">
+              <div>
+                <div class="calc__label">
+                  <label for="duljina">Duljina živice</label>
+                  <span class="calc__value"><span data-out-duljina>25</span><small>m</small></span>
+                </div>
+                <input class="calc__range" id="duljina" type="range"
+                       min="5" max="200" step="1" value="25" disabled>
+                <div class="calc__scale" aria-hidden="true"><span>5 m</span><span>200 m</span></div>
+              </div>
+
+              <div class="field">
+                <label for="visina">Visina živice</label>
+                <select id="visina" disabled>
+                  <option value="0">do 1 m</option>
+                  <option value="1" selected>1 do 2 m</option>
+                  <option value="2">2 do 3 m</option>
+                  <option value="3">3 m i više</option>
+                </select>
+                <p class="field__hint">Naplaćuje se po metru dužnom, <span data-out-stopa-zivice></span></p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Lokacija -->
+          <section class="calc__usluga calc__usluga--plain">
+            <div class="field">
+              <label for="zona">Gdje se vrt nalazi</label>
+              <select id="zona">
+                <!-- PLACEHOLDER: granice zona — uskladiti sa stvarnim područjem rada -->
+                <option value="0" selected>Zagreb (grad)</option>
+                <option value="1">Okolica Zagreba, do 15 km</option>
+                <option value="2">15 do 30 km od Zagreba</option>
+                <option value="3">Više od 30 km</option>
+              </select>
+              <p class="field__hint">Udaljenost utječe samo na trošak dolaska.</p>
+            </div>
+          </section>
+
+          <div class="calc__disclaimer">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11.2v5M12 7.9h.01"/></svg>
+            <span>
+              Ovo je <strong>okvirna procjena</strong>, a ne ponuda. Stvarna cijena ovisi o stanju travnjaka,
+              nagibu terena, pristupu i opsegu posla. Točnu cijenu dajemo nakon besplatnog izlaska na teren.
+            </span>
+          </div>
+
+        </div>
+
+        <!-- ---------- Ishod ---------- -->
+        <div class="calc__result" data-reveal style="--i:1">
+          <span class="eyebrow eyebrow--warm">Približna cijena</span>
+          <strong class="calc__total" data-out-ukupno aria-hidden="true"></strong>
+          <p class="calc__approx">okvirna procjena za jednokratni dolazak</p>
+          <!-- Izgovara se tek kad korisnik pusti klizač, da se ne ponavlja
+               na svaki pomak; broj iznad je zato skriven čitačima ekrana. -->
+          <p class="visually-hidden" data-out-sazetak aria-live="polite"></p>
+
+          <ul class="calc__breakdown">
+            <li data-red="travnjak">
+              <span>Travnjak, <span data-out-povrsina>300</span> m²</span>
+              <b data-out-travnjak></b>
+            </li>
+            <li data-red="nagib" hidden>
+              <span>Kosi teren</span>
+              <b>×2</b>
+            </li>
+            <li data-red="zivica" hidden>
+              <span>Živica, <span data-out-duljina>25</span> m × <span data-out-stopa-zivice></span></span>
+              <b data-out-zivica></b>
+            </li>
+            <li data-red="dolazak">
+              <span>Dolazak, <span data-out-zona>Zagreb (grad)</span></span>
+              <b data-out-dolazak></b>
+            </li>
+          </ul>
+
+          <p class="calc__prazno" data-prazno hidden>
+            Uključite barem jednu uslugu da vidite procjenu.
+          </p>
+
+          <a class="btn btn--lg" data-wa-link
+             href="https://wa.me/385994105644" target="_blank" rel="noopener">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+            Pošaljite izračun na WhatsApp
+          </a>
+          <p class="calc__note">
+            Otvara WhatsApp s već upisanom kvadraturom i lokacijom, samo pošaljete poruku.
+            Ili nazovite: <a href="tel:+385994105644" style="color:inherit">+385 99 410 5644</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CJENIK ================= -->
+  <section class="section section--paper">
+    <div class="wrap wrap--narrow">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Cjenik</span>
+        <h2>Kako se cijena slaže</h2>
+        <p>Bez skrivenih stavki. Ovo su cijene po kojima računa i kalkulator.</p>
+      </div>
+
+      <div class="panel" data-reveal>
+        <h3>Košnja travnjaka</h3>
+        <p class="form__note" style="margin-top:.4rem">
+          Cijena se računa po pojasevima: prvih 1000 m² po 0,25 €, sljedećih 1000 m²
+          po 0,20 € i tako dalje. Veći vrt zato nikad ne ispada jeftiniji.
+        </p>
+        <div class="tablica-omot">
+          <table class="tablica">
+            <thead><tr><th scope="col">Površina</th><th scope="col">Cijena po m²</th></tr></thead>
+            <tbody>
+              <tr><td>do 1000 m²</td><td>0,25 €</td></tr>
+              <tr><td>1000 do 2000 m²</td><td>0,20 €</td></tr>
+              <tr><td>2000 do 3000 m²</td><td>0,15 €</td></tr>
+              <tr><td>3000 m² i više</td><td>0,10 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="form__note" style="margin-top:var(--sp-3)">
+          Za <strong>kosi teren</strong> cijena rada množi se s 2.
+        </p>
+
+        <h3 style="margin-top:var(--sp-5)">Orezivanje živice</h3>
+        <p class="form__note" style="margin-top:.4rem">Naplaćuje se po metru dužnom, prema visini živice.</p>
+        <div class="tablica-omot">
+          <table class="tablica">
+            <thead><tr><th scope="col">Visina živice</th><th scope="col">Cijena po m</th></tr></thead>
+            <tbody>
+              <tr><td>do 1 m</td><td>2 €</td></tr>
+              <tr><td>1 do 2 m</td><td>4 €</td></tr>
+              <tr><td>2 do 3 m</td><td>6 €</td></tr>
+              <tr><td>3 m i više</td><td>9 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:var(--sp-5)">Dolazak</h3>
+        <p class="form__note" style="margin-top:.4rem">
+          <!-- PLACEHOLDER: granice zona — potvrditi sa stvarnim područjem rada -->
+          Od 20 € do 50 € po dolasku, ovisno o udaljenosti. Naplaćuje se jednom po izlasku,
+          bez obzira na to koliko usluga naručite.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ŠTO UTJEČE NA CIJENU ================= -->
+  <section class="section section--cream">
+    <div class="wrap wrap--narrow">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Dobro je znati</span>
+        <h2>Što još utječe na konačnu cijenu</h2>
+      </div>
+      <div class="panel" data-reveal>
+        <ul class="info-list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4.4 2.6-7.4 7-8 .3 4.7-2.3 7.9-7 8Z"/></svg>
+            <span><strong>Stanje travnjaka</strong> Zapuštena, visoka trava traži više vremena i prolaza nego redovito košen travnjak.</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19h18M4.5 19 12 6.5 19.5 19"/></svg>
+            <span><strong>Nagib i pristup</strong> Kosi teren, uske staze i stepenice usporavaju rad i ponekad traže drugu opremu.</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.8v3.4M16 2.8v3.4"/></svg>
+            <span><strong>Redovitost</strong> Uz paušalni ugovor cijena po dolasku je niža nego za jednokratnu intervenciju.</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 8V5.8A2.8 2.8 0 0 1 15 5.8V8"/></svg>
+            <span><strong>Odvoz zelenog otpada</strong> Ako otpad ne ostaje kod vas, dodaje se trošak odvoza.</span>
+          </li>
+        </ul>
+        <p class="form__note" style="margin-top: var(--sp-4);">
+          Sve to prolazimo s vama na terenu prije konačne ponude. Izlazak je besplatan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta__inner">
+      <div class="cta__copy" data-reveal>
+        <h2>Želite točnu cijenu?</h2>
+        <p>Dogovorite besplatan izlazak na teren. Vidimo vrt uživo i dajemo ponudu bez obveze.</p>
+      </div>
+      <div class="cta__actions" data-reveal style="--i:1">
+        <a class="btn btn--lg" href="mailto:stipep034@gmail.com?subject=Upit%20za%20ponudu%20%7C%20RYS%20Horticulture">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.6"/><path d="m3.2 6.6 8.8 6 8.8-6"/></svg>
+          Pošaljite nam e-mail
+        </a>
+        <a class="btn btn--lg btn--white" href="https://wa.me/385994105644?text=Pozdrav%2C%20zanima%20me%20ponuda%20za%20ure%C4%91enje%20vrta." target="_blank" rel="noopener">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+          Pišite nam na WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="index.html">
+          <span class="brand__badge"><img src="assets/img/logo-sm.png" alt="" width="64" height="66"></span>
+          <span class="brand__name">RYS Horticulture</span>
+        </a>
+        <p>Održavamo i uređujemo vrtove i okućnice. Brinemo se o vašem vrtu kroz cijelu godinu, pa vi ne morate.</p>
+      </div>
+      <div>
+        <h3>Usluge</h3>
+        <ul>
+          <li><a href="usluge.html#travnjaci">Održavanje travnjaka</a></li>
+          <li><a href="usluge.html#zivica">Orezivanje živice</a></li>
+          <li><a href="usluge.html#dizajn">Dizajn vrta</a></li>
+          <li><a href="usluge.html#pausal">Paušalni ugovor</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Tvrtka</h3>
+        <ul>
+          <li><a href="o-nama.html">O nama</a></li>
+          <li><a href="galerija.html">Galerija</a></li>
+          <li><a href="izracun-cijene.html">Izračun cijene</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <ul>
+          <li><a href="mailto:stipep034@gmail.com">stipep034@gmail.com</a></li>
+          <li><a href="https://wa.me/385994105644" target="_blank" rel="noopener">WhatsApp poruka</a></li>
+          <li><a href="tel:+385994105644">+385 99 410 5644</a></li>
+          <li>Zagreb i okolica</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 RYS Horticulture. Sva prava pridržana.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

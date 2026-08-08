@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# PLACEHOLDER: zamijeniti stvarnom domenom prije objave
+Sitemap: https://www.rys-horticulture.hr/sitemap.xml
