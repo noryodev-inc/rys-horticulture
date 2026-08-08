@@ -15,13 +15,12 @@ grep -rn "PLACEHOLDER" /Users/nino/Desktop/clients/rysHorticulture/web
 
 ## 0. Prije objave, ukratko
 
-- [ ] Domena u `robots.txt` i `sitemap.xml` (sada `www.rys-horticulture.hr`)
 - [ ] Granice zona dolaska u kalkulatoru (odjeljak 1)
 - [ ] Priča tvrtke na *O nama* (odjeljak 3)
 - [ ] Odgovori na 5 pitanja o uslugama (odjeljak 4)
 - [ ] Preostale dodatne usluge s letka (odjeljak 4)
 - [ ] Radno vrijeme i točno područje rada
-- [ ] Fotografije za galeriju, 6 praznih mjesta (odjeljak 5)
+- [ ] Fotografije za galeriju, 5 praznih mjesta (odjeljak 5)
 
 ## 1. Cijene u kalkulatoru
 
@@ -84,21 +83,14 @@ Telefon, WhatsApp i e-mail su **stvarni**. Ostalo treba provjeriti:
 | Podatak | Vrijednost | Status |
 | --- | --- | --- |
 | Telefon / WhatsApp | `+385 99 410 5644`, `wa.me/385994105644` | **stvarno** |
-| E-mail | `stipep034@gmail.com` | **stvarno** |
+| E-mail | `stipe@ryshorticulture.com` | **stvarno** |
 | Područje rada | „Zagreb i okolica” | provjeriti |
 | Radno vrijeme | „Pon – Sub, 08:00 – 18:00” | provjeriti |
 
-E-mail je privatna Gmail adresa jer tvrtka još nema domenu. Kad domena bude
-kupljena, isplati se prijeći na adresu na domeni (`info@domena.hr`) jer djeluje
-ozbiljnije i ne veže posao uz privatni račun. Zamjena je jedna naredba:
-
-```bash
-cd /Users/nino/Desktop/clients/rysHorticulture/web
-grep -rl "stipep034@gmail.com" . | xargs sed -i '' 's/stipep034@gmail.com/info@NOVA-DOMENA.hr/g'
-```
-
-Time se mijenjaju `mailto:` linkovi, podnožje, `noscript` poruka i atribut
-`data-mail-form` na obrascu.
+Domena je `ryshorticulture.com` i upisana je u `robots.txt` te `sitemap.xml`
+(bez `www`). Ako se na Netlifyju kao glavna postavi `www.ryshorticulture.com`,
+uskladiti i te dvije datoteke, inače sitemap pokazuje na adrese koje se
+preusmjeravaju.
 
 ## 3. O nama (`o-nama.html`)
 
@@ -121,7 +113,7 @@ pretpostavka — treba potvrditi:
 
 ## 5. Galerija (`galerija.html`)
 
-Trenutno su tu tri stvarne fotografije i šest polja „Fotografija uskoro”.
+Trenutno su tu tri stvarne fotografije i pet polja „Fotografija uskoro”.
 
 Dodavanje nove fotografije — zamijeni jedan `<div class="shot shot--empty">` ovime:
 
@@ -161,8 +153,8 @@ i obrisati atribut `data-mail-form` (time se isključuje i JS koji priprema `mai
 
 ## 8. SEO i tehničke datoteke
 
-- **`robots.txt` i `sitemap.xml`** koriste privremenu domenu `www.rys-horticulture.hr`.
-  Zamijeniti stvarnom prije objave, inače Google indeksira nepostojeće adrese.
+- **`robots.txt` i `sitemap.xml`** koriste `https://ryshorticulture.com` (bez `www`).
+  Provjeriti da to odgovara glavnoj domeni postavljenoj na Netlifyju.
 - **Strukturirani podaci** (`application/ld+json` u `index.html`) sadrže naziv,
   telefon, e-mail i područje rada. **Adresa nije unutra** jer nije potvrđena; kad
   bude poznata, dodati `address` u taj blok.
