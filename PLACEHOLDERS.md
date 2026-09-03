@@ -162,12 +162,17 @@ i obrisati atribut `data-mail-form` (time se isključuje i JS koji priprema `mai
   treba `.htaccess` s `ErrorDocument 404 /404.html`, na nginxu `error_page 404 /404.html;`.
 - **Favicon** je izrađen iz logotipa (list + „RYS", bez riječi HORTICULTURE koja
   je na 32 px nečitljiva). Datoteke: `favicon.ico` (16/32/48) i `apple-touch-icon.png`
-  u korijenu, `assets/img/favicon-96.png` i `-512.png`. Google traži `/favicon.ico`
+  u korijenu, `assets/img/favicon-96.png`. Google traži `/favicon.ico`
   u korijenu, zato je ondje, a ne u `assets/`.
 - **Telefonski broj namjerno nije u podnožju** da se ne pojavljuje u Google opisu
   rezultata. Ostao je na stranici *Kontakt* i u kalkulatoru. U strukturiranim
   podacima (`telephone`) i dalje je jer to hrani Google Business profil, ne opis
   rezultata; ako se i to želi maknuti, obrisati taj redak u `index.html`.
+- **Fontovi.** Inter se dohvaća kao **varijabilni** (`wght@400..700`, jedna datoteka
+  za sve težine) umjesto četiri statične, a Fraunces samo u težini 600 jer se druge
+  nigdje ne koriste. Time je teret fontova pao sa 646 KB na 196 KB. Ako se u CSS
+  doda nova težina Fraunces, treba je dodati i u URL u `<head>` svih stranica,
+  inače će je preglednik lažirati (sintetički podebljati).
 - **Slike** imaju `srcset` s malom i velikom varijantom. Ako dodajete nove fotografije,
   napravite i malu verziju (`sips -s format jpeg -s formatOptions 50 -Z 1100 …`) i
   navedite obje u `srcset`, inače mobitel skida punu veličinu.

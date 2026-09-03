@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Interne bilješke, nisu za tražilice
+Disallow: /README.md
+Disallow: /PLACEHOLDERS.md
+
 Sitemap: https://ryshorticulture.com/sitemap.xml
